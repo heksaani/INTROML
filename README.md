@@ -1,6 +1,8 @@
 # Course repository for the course "Introduction to Machine Learning" KAMK 2024
 
-### ML-intro
+### [ML-intro](./ML-intro/)
+
+In the /docs/docs is located the learning diary entries and images used in them.
 
 ### [koodit](./koodit/)
 
