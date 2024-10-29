@@ -1,0 +1,34 @@
+name: ml-perusteet-code
+
+services:
+  allure:
+    image: "frankescobar/allure-docker-service"
+    environment:
+      CHECK_RESULTS_EVERY_SECONDS: 5
+      KEEP_HISTORY: 1
+      KEEP_HISTORY_LATEST: 25
+    ports:
+      - "5050:5050"
+    volumes:
+      - allure-results:/app/allure-results
+      - allure-reports:/app/default-reports
+
+  tester:
+    container_name: ml-tester-run
+    image: kamk/ml-tester:latest
+    environment:
+      PYTHONPYCACHEPREFIX: /app/.python_docker_cache
+    build:
+      context: .
+      dockerfile: tester.Dockerfile
+      args:
+        - PACKAGE_NAME=${PACKAGE_NAME:-ml}
+    command: pytest --alluredir=/app/allure-results
+    volumes:
+      - allure-results:/app/allure-results
+      - ./src/${PACKAGE_NAME:-ml}:/app/ml/
+      - ./tests:/app/tests/
+
+volumes:
+  allure-results:
+  allure-reports:

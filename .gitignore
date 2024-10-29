@@ -1,0 +1,36 @@
+# Virtual environments
+.venv/
+.env/
+venv/
+env/
+
+# Allure and pytest reports
+allure-reports/
+allure-results/
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+.mypy_cache/
+.pytest_cache/
+.ipynb_checkpoints/
+
+# Correct answers (ln -s) and sandbox dir
+koodit/src/sandbox/
+koodit/src/vastaukset
+koodit/src/ml.egg-info/
+# OS-specific files
+.DS_Store
+
+# Anything in data folder, EXCEPT the tiny course related sets
+koodit/data/*
+!koodit/data/bike_or_car/
+!koodit/data/clustering/
+!koodit/data/y_skills/
+
+/notebooks/data/hate-speech-and-offensive-language/*
+!/notebooks/data/hate-speech-and-offensive-language/data/
+/notebooks/data/hate-speech-and-offensive-language/data/*
+!/notebooks/data/hate-speech-and-offensive-language/data/labeled_data.csv
+
